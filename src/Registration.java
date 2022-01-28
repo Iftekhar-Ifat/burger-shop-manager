@@ -18,12 +18,14 @@ public class Registration extends JFrame {
 
         JButton confirmBtn = new JButton();
         confirmBtn.setBounds(384,409,115,50);
+        confirmBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         ImageIcon confirmBtnIcon = new ImageIcon("Images/Registration/confirmBtn.png");
         confirmBtn.setIcon(confirmBtnIcon);
         add(confirmBtn);
 
         JButton backBtn = new JButton();
         backBtn.setBounds(673,10,115,50);
+        backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         ImageIcon backBtnIcon = new ImageIcon("Images/Registration/backBtn.png");
         backBtn.setIcon(backBtnIcon);
         add(backBtn);

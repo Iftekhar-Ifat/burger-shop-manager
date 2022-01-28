@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class LoginMenu extends JFrame {
     LoginMenu() {
@@ -21,18 +22,21 @@ public class LoginMenu extends JFrame {
 
         JButton adminBtn = new JButton();
         adminBtn.setBounds(50,400,79,29);
+        adminBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         ImageIcon adminIcon = new ImageIcon("Images/Login Menu/adminBtn.png");
         adminBtn.setIcon(adminIcon);
         rightCard.add(adminBtn);
 
         JButton sellerBtn = new JButton();
         sellerBtn.setBounds(190,400,79,29);
+        sellerBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         ImageIcon sellerIcon = new ImageIcon("Images/Login Menu/sellerBtn.png");
         sellerBtn.setIcon(sellerIcon);
         rightCard.add(sellerBtn);
 
         JButton buyerBtn = new JButton();
         buyerBtn.setBounds(330,400,79,29);
+        buyerBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         ImageIcon buyerIcon = new ImageIcon("Images/Login Menu/buyerBtn.png");
         buyerBtn.setIcon(buyerIcon);
         rightCard.add(buyerBtn);
