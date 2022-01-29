@@ -5,7 +5,8 @@ public class LoginPage extends JFrame {
     Color maroon = new Color(36,1,1);
     Color burgerColor = new Color(255,153,0);
 
-    LoginPage(){
+
+    LoginPage(String status){
         setSize(816,538);
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -63,12 +64,19 @@ public class LoginPage extends JFrame {
 
         registerBtn.addActionListener( e -> {
             dispose();
-            new Registration();
+            new Registration(status);
         });
 
+        loginBtn.addActionListener(e -> {
+            String userName = emailField.getText();
+            String userPass = passwordField.getText();
 
+            String userQuery = "SELECT `Email`,`Password`,`UserStatus` FROM `registration`";
+            dispose();
+            DataBase db = new DataBase();
+            db.checkLoginUser(userQuery, userName, userPass, status);
 
-
+        });
 
 
 

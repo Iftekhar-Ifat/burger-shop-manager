@@ -1,10 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 public class Registration extends JFrame {
     Color maroon = new Color(36,1,1);
     Color burgerColor = new Color(255,153,0);
-    Registration(){
+    Registration(String status){
+        System.out.println(status);
         setSize(816,538);
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -32,7 +35,7 @@ public class Registration extends JFrame {
 
         backBtn.addActionListener( e -> {
             dispose();
-            new LoginPage();
+            new LoginPage(status);
         });
 
         JTextField nameField = new JTextField();
@@ -80,9 +83,6 @@ public class Registration extends JFrame {
         confirmPassField.setBackground(maroon);
         add(confirmPassField);
 
-
-
-
         JLabel background = new JLabel();
         background.setBounds(150,0,650,500);
         ImageIcon backgroundIcon = new ImageIcon("Images/Registration/background.png");
@@ -90,8 +90,39 @@ public class Registration extends JFrame {
         add(background);
 
 
+        confirmBtn.addActionListener(e ->{
+            String name = nameField.getText();
+            String email = emailField.getText();
+            String mobile = mobileField.getText();
+            String password = passwordField.getText();
 
+            String userNameRegEx = "^[a-zA-Z._ ]+$";
+            String passRegEx = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[~!@#$?&_\\-]).{6,20}";
+            String emailRegEx = "^[a-z0-9_]+@[a-z]+.+[a-z]+$";
+            String mobileRegEx = "(\\+88)?-?01[3-9]\\d{8}";
 
+            if(!Pattern.matches(userNameRegEx, name)){
+                JOptionPane.showMessageDialog(null, "Invalid User Name\n");
+            }else if(!Pattern.matches(emailRegEx, email)){
+                System.out.println(email);
+                JOptionPane.showMessageDialog(null, "Invalid E-mail!");
+            }else if(!Pattern.matches(mobileRegEx, mobile)){
+                JOptionPane.showMessageDialog(null, "Invalid Mobile Number\n");
+            }else if(!Pattern.matches(passRegEx, password)){
+                System.out.println(password);
+                JOptionPane.showMessageDialog(null, "Invalid Password\nYour password must contain\n1-digit\n1-special char\n1-upper case\n1-lower case");
+            }else {
+                String sqlQuery = "INSERT INTO `registration`(`Name`, `Email`, `Mobile`, `Password`, `UserStatus`) "
+                        + "VALUES ('"+name+"','"+email+"','"+mobile+"','"+password+"','"+status+"')";
+                DataBase db = new DataBase();
+                try {
+                    db.Insert(sqlQuery);
+                    JOptionPane.showMessageDialog(null,"Registration confirmed");
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
         setVisible(true);
     }
 }

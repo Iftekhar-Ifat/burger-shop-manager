@@ -43,17 +43,17 @@ public class LoginMenu extends JFrame {
 
         adminBtn.addActionListener( e -> {
             dispose();
-            new LoginPage();
+            new LoginPage("admin");
         });
 
         sellerBtn.addActionListener( e -> {
             dispose();
-            new LoginPage();
+            new LoginPage("seller");
         });
 
         buyerBtn.addActionListener( e -> {
             dispose();
-            new LoginPage();
+            new LoginPage("buyer");
         });
 
         setVisible(true);
