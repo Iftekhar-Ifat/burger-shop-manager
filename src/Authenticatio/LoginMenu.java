@@ -1,8 +1,10 @@
+package Authenticatio;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class LoginMenu extends JFrame {
-    LoginMenu() {
+    public LoginMenu() {
         setSize(816,538);
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -48,7 +50,7 @@ public class LoginMenu extends JFrame {
 
         sellerBtn.addActionListener( e -> {
             dispose();
-            new LoginPage("seller");
+            new LoginPage("pending");
         });
 
         buyerBtn.addActionListener( e -> {

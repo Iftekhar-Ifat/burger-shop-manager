@@ -1,3 +1,6 @@
+package Buyer;
+import Authenticatio.LoginMenu;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -27,6 +30,16 @@ public class OrderConfirm extends JFrame {
         ImageIcon logoutIcon = new ImageIcon("Images/Order Confirm/logoutBtn.png");
         logoutBtn.setIcon(logoutIcon);
         background.add(logoutBtn);
+
+        backBtn.addActionListener( e -> {
+            dispose();
+            new ItemPage();
+        });
+
+        logoutBtn.addActionListener( e -> {
+            dispose();
+            new LoginMenu();
+        });
 
 
         setVisible(true);

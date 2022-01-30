@@ -1,3 +1,9 @@
+package Database;
+
+import Admin.Dashboard;
+import Authenticatio.LoginPage;
+import Buyer.ItemPage;
+
 import javax.swing.*;
 import java.sql.*;
 import java.util.logging.Level;
@@ -7,7 +13,7 @@ public class DataBase {
     private Statement state;
     public DataBase(){
         String path = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/burger-shop-manager";
+        String url = "jdbc:mysql://localhost:3306/burger_shop_manager";
         try{
             Class.forName(path);
             Connection con = DriverManager.getConnection(url, "root", "");
@@ -18,13 +24,13 @@ public class DataBase {
 
     }
 
-    void Insert(String query) throws SQLException {
+    public void Insert(String query) throws SQLException {
         state.executeUpdate(query);
         state.close();
     }
 
     ResultSet resSet;
-    void checkLoginUser(String userQuery, String enteredName, String enteredPass, String userStat) {
+    public void checkLoginUser(String userQuery, String enteredName, String enteredPass, String userStat) {
         try {
             resSet = state.executeQuery(userQuery);
             boolean userExist = false;

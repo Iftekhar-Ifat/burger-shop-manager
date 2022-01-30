@@ -1,3 +1,7 @@
+package Authenticatio;
+
+import Database.DataBase;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -6,7 +10,7 @@ public class LoginPage extends JFrame {
     Color burgerColor = new Color(255,153,0);
 
 
-    LoginPage(String status){
+    public LoginPage(String status){
         setSize(816,538);
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

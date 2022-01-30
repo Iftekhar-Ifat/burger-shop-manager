@@ -1,9 +1,13 @@
+package Admin;
+
+import Authenticatio.LoginMenu;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Dashboard extends JFrame {
 
-    Dashboard(){
+    public Dashboard(){
         setSize(816,538);
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

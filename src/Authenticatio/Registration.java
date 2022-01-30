@@ -1,3 +1,7 @@
+package Authenticatio;
+
+import Database.DataBase;
+
 import javax.swing.*;
 import java.awt.*;
 import java.sql.SQLException;
@@ -118,6 +122,8 @@ public class Registration extends JFrame {
                 try {
                     db.Insert(sqlQuery);
                     JOptionPane.showMessageDialog(null,"Registration confirmed");
+                    dispose();
+                    new LoginPage(status);
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
