@@ -18,7 +18,7 @@ public class LoginPage extends JFrame {
 
         JLabel background = new JLabel();
         background.setBounds(0,0,800,500);
-        ImageIcon backImg = new ImageIcon("Images/Login Page/background.png");
+        ImageIcon backImg = new ImageIcon("Images/Authentication/Login Page/background.png");
         background.setIcon(backImg);
         add(background);
 
@@ -43,21 +43,21 @@ public class LoginPage extends JFrame {
         JButton loginBtn = new JButton();
         loginBtn.setBounds(309,370,115,50);
         loginBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon loginBtnIcon = new ImageIcon("Images/Login Page/loginBtn.png");
+        ImageIcon loginBtnIcon = new ImageIcon("Images/Authentication/Login Page/loginBtn.png");
         loginBtn.setIcon(loginBtnIcon);
         background.add(loginBtn);
 
         JButton registerBtn = new JButton();
         registerBtn.setBounds(474,370,115,50);
         registerBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon registerBtnIcon = new ImageIcon("Images/Login Page/regBtn.png");
+        ImageIcon registerBtnIcon = new ImageIcon("Images/Authentication/Login Page/regBtn.png");
         registerBtn.setIcon(registerBtnIcon);
         background.add(registerBtn);
 
         JButton backBtn = new JButton();
         backBtn.setBounds(673,10,115,50);
         backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon backBtnIcon = new ImageIcon("Images/Login Page/backBtn.png");
+        ImageIcon backBtnIcon = new ImageIcon("Images/Authentication/Login Page/backBtn.png");
         backBtn.setIcon(backBtnIcon);
         background.add(backBtn);
 

@@ -1,15 +1,26 @@
-import Admin.Earnings;
+import Admin.ApproveSeller;
+import Admin.BuyerList;
+import Admin.LiveSeller;
+import Admin.RemoveSeller;
+import Authenticatio.LoginMenu;
+import Authenticatio.LoginPage;
 import Buyer.ItemPage;
+import Buyer.OrderConfirm;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Earnings er = new Earnings();
+        //RemoveSeller rs = new RemoveSeller();
+        //ApproveSeller as = new ApproveSeller();
+        //BuyerList bs = new BuyerList();
+        //LiveSeller ls = new LiveSeller();
+        //Earnings er = new Earnings();
         //Dashboard dsh = new Dashboard();
         //ItemPage item = new ItemPage();
         //LoginMenu lg = new LoginMenu();
         //OrderConfirm oc = new OrderConfirm();
         //Registration reg = new Registration();
+        //LoginPage lp = new LoginPage("");
     }
 }

@@ -19,21 +19,21 @@ public class Registration extends JFrame {
 
         JLabel leftCard = new JLabel();
         leftCard.setBounds(0,0,150,500);
-        ImageIcon leftIcon = new ImageIcon("Images/Registration/leftCard.png");
+        ImageIcon leftIcon = new ImageIcon("Images/Authentication/Registration/leftCard.png");
         leftCard.setIcon(leftIcon);
         add(leftCard);
 
         JButton confirmBtn = new JButton();
         confirmBtn.setBounds(384,409,115,50);
         confirmBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon confirmBtnIcon = new ImageIcon("Images/Registration/confirmBtn.png");
+        ImageIcon confirmBtnIcon = new ImageIcon("Images/Authentication/Registration/confirmBtn.png");
         confirmBtn.setIcon(confirmBtnIcon);
         add(confirmBtn);
 
         JButton backBtn = new JButton();
         backBtn.setBounds(673,10,115,50);
         backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon backBtnIcon = new ImageIcon("Images/Registration/backBtn.png");
+        ImageIcon backBtnIcon = new ImageIcon("Images/Authentication/Registration/backBtn.png");
         backBtn.setIcon(backBtnIcon);
         add(backBtn);
 
@@ -89,7 +89,7 @@ public class Registration extends JFrame {
 
         JLabel background = new JLabel();
         background.setBounds(150,0,650,500);
-        ImageIcon backgroundIcon = new ImageIcon("Images/Registration/background.png");
+        ImageIcon backgroundIcon = new ImageIcon("Images/Authentication/Registration/background.png");
         background.setIcon(backgroundIcon);
         add(background);
 

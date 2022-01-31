@@ -1,19 +1,18 @@
-package Buyer;
-import Authenticatio.LoginMenu;
+package Admin;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class OrderConfirm extends JFrame {
-    public OrderConfirm(){
-        setSize(816,539);
+public class RemoveSeller extends JFrame {
+    public RemoveSeller(){
+        setSize(816,538);
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         JLabel background = new JLabel();
         background.setBounds(0,0,800,500);
-        ImageIcon backImg = new ImageIcon("Images/Buyer/Order Confirm/background.png");
+        ImageIcon backImg = new ImageIcon("Images/Admin/Remove Seller/background.png");
         background.setIcon(backImg);
         add(background);
 
@@ -24,26 +23,18 @@ public class OrderConfirm extends JFrame {
         backBtn.setIcon(backIcon);
         background.add(backBtn);
 
-        JButton logoutBtn = new JButton();
-        logoutBtn.setBounds(667, 427, 115,50);
-        logoutBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon logoutIcon = new ImageIcon("Images/Buyer/Order Confirm/logoutBtn.png");
-        logoutBtn.setIcon(logoutIcon);
-        background.add(logoutBtn);
+        JButton removeBtn = new JButton();
+        removeBtn.setBounds(295, 422, 115,50);
+        removeBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        ImageIcon removeIcon = new ImageIcon("Images/Admin/Remove Seller/removeBtn.png");
+        removeBtn.setIcon(removeIcon);
+        background.add(removeBtn);
 
         backBtn.addActionListener( e -> {
             dispose();
-            new ItemPage();
+            new Dashboard();
         });
-
-        logoutBtn.addActionListener( e -> {
-            dispose();
-            new LoginMenu();
-        });
-
 
         setVisible(true);
     }
-
-
 }
