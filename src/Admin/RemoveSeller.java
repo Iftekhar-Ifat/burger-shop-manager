@@ -1,6 +1,9 @@
 package Admin;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
 
 public class RemoveSeller extends JFrame {
@@ -34,6 +37,52 @@ public class RemoveSeller extends JFrame {
             dispose();
             new Dashboard();
         });
+
+        /*Remove Seller Table start*/
+
+        JPanel removeSellerTablePanel = new JPanel();
+        removeSellerTablePanel.setLayout(new BorderLayout());
+        removeSellerTablePanel.setBounds(26,71,600,295);
+        removeSellerTablePanel.setBackground(Color.white);
+        background.add(removeSellerTablePanel);
+
+        Object[][] data = new Object[0][0];
+
+        //Object[][] data = new Object[0][0];
+
+        Object[] column = {"Name", "Mobile","E-mail"};
+        Font headerFont = new Font("Arial", Font.BOLD, 22);
+
+        DefaultTableModel model = new DefaultTableModel(data,column);
+
+
+        JTable removeSellerTable = new JTable(model);
+        removeSellerTable.setFont(new Font("Arial", Font.PLAIN, 20));
+        removeSellerTable.setRowHeight(30);
+
+/*
+        center items start
+*/
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        for(int x=0; x<column.length; x++){
+            removeSellerTable.getColumnModel().getColumn(x).setCellRenderer( centerRenderer );
+        }
+/*
+        center items end
+*/
+
+        JTableHeader tableHeader = removeSellerTable.getTableHeader();
+        tableHeader.setFont(headerFont);
+        removeSellerTablePanel.add(tableHeader, BorderLayout.NORTH);
+        removeSellerTablePanel.add(removeSellerTable, BorderLayout.CENTER);
+
+        JScrollPane scrollPane = new JScrollPane(removeSellerTable);
+        removeSellerTablePanel.add(scrollPane);
+
+/*
+        Remove Seller Table end
+*/
 
         setVisible(true);
     }

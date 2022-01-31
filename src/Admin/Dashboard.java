@@ -65,7 +65,7 @@ public class Dashboard extends JFrame {
         JButton logoutBtn = new JButton();
         logoutBtn.setBounds(667,430,115,50);
         logoutBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon logoutIcon = new ImageIcon("Images/Order Confirm/logoutBtn.png");
+        ImageIcon logoutIcon = new ImageIcon("Images/Buyer/Order Confirm/logoutBtn.png");
         logoutBtn.setIcon(logoutIcon);
         background.add(logoutBtn);
 
@@ -77,6 +77,22 @@ public class Dashboard extends JFrame {
         earningsBtn.addActionListener(e -> {
             dispose();
             new Earnings();
+        });
+        liveSellerBtn.addActionListener(e -> {
+            dispose();
+            new LiveSeller();
+        });
+        buyerListBtn.addActionListener(e -> {
+            dispose();
+            new BuyerList();
+        });
+        approveSellerBtn.addActionListener(e -> {
+            dispose();
+            new ApproveSeller();
+        });
+        removeSellerBtn.addActionListener( e -> {
+            dispose();
+            new RemoveSeller();
         });
 
 

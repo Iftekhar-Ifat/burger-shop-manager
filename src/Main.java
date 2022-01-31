@@ -1,11 +1,9 @@
-import Admin.ApproveSeller;
-import Admin.BuyerList;
-import Admin.LiveSeller;
-import Admin.RemoveSeller;
+import Admin.*;
 import Authenticatio.LoginMenu;
 import Authenticatio.LoginPage;
 import Buyer.ItemPage;
 import Buyer.OrderConfirm;
+import Seller.SellerDashboard;
 
 public class Main {
 
@@ -22,5 +20,6 @@ public class Main {
         //OrderConfirm oc = new OrderConfirm();
         //Registration reg = new Registration();
         //LoginPage lp = new LoginPage("");
+        SellerDashboard sd = new SellerDashboard();
     }
 }

@@ -1,6 +1,9 @@
 package Admin;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
 
 public class LiveSeller extends JFrame {
@@ -29,6 +32,45 @@ public class LiveSeller extends JFrame {
             new Dashboard();
         });
 
+        /*Live Seller Table start*/
+
+        JPanel liveSellerTablePanel = new JPanel();
+        liveSellerTablePanel.setLayout(new BorderLayout());
+        liveSellerTablePanel.setBounds(26,79,600,370);
+        liveSellerTablePanel.setBackground(Color.white);
+        background.add(liveSellerTablePanel);
+
+        Object[][] data = new Object[0][0];
+
+        //Object[][] data = new Object[0][0];
+
+        Object[] column = {"Name", "Mobile", "Status"};
+        Font headerFont = new Font("Arial", Font.BOLD, 22);
+
+        DefaultTableModel model = new DefaultTableModel(data,column);
+
+
+        JTable liveSellerTable = new JTable(model);
+        liveSellerTable.setFont(new Font("Arial", Font.PLAIN, 20));
+        liveSellerTable.setRowHeight(30);
+
+        /*center items start*/
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        for(int x=0; x<column.length; x++){
+            liveSellerTable.getColumnModel().getColumn(x).setCellRenderer( centerRenderer );
+        }
+        /*center items end*/
+
+        JTableHeader tableHeader = liveSellerTable.getTableHeader();
+        tableHeader.setFont(headerFont);
+        liveSellerTablePanel.add(tableHeader, BorderLayout.NORTH);
+        liveSellerTablePanel.add(liveSellerTable, BorderLayout.CENTER);
+
+        JScrollPane scrollPane = new JScrollPane(liveSellerTable);
+        liveSellerTablePanel.add(scrollPane);
+
+        /*Live Seller Table end*/
         setVisible(true);
     }
 }

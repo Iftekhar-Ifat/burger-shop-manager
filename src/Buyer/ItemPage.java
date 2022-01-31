@@ -3,6 +3,7 @@ package Buyer;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
 
 
@@ -134,24 +135,33 @@ public class ItemPage extends JFrame {
 
         /*Java er biroktikor Table start*/
 
-        Object[][] data ={{"Item No","Qty.","Price"}};
-        String[] column ={"Item No","Qty.","Price"};
+        JPanel receiptTablePanel = new JPanel();
+        receiptTablePanel.setLayout(new BorderLayout());
+        receiptTablePanel.setBounds(5,65,140,350);
+        receiptTablePanel.setBackground(Color.white);
+        receiptLabel.add(receiptTablePanel);
 
-        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        Object[][] data = new Object[0][0];
+
+        Object[] column = {"Item No", "Qty.", "Price"};
+        Font headerFont = new Font("Arial", Font.BOLD, 12);
 
         DefaultTableModel model = new DefaultTableModel(data,column);
 
         JTable receiptTable = new JTable(model);
 
+            /*center items start*/
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
         for(int x=0; x<column.length; x++){
             receiptTable.getColumnModel().getColumn(x).setCellRenderer( centerRenderer );
         }
+            /*center items end*/
 
-        receiptTable.setFont(new Font("Arial", Font.BOLD, 12));
-        receiptTable.setBounds(5,65,140,350);
-        receiptLabel.add(receiptTable);
-
+        JTableHeader tableHeader = receiptTable.getTableHeader();
+        tableHeader.setFont(headerFont);
+        receiptTablePanel.add(tableHeader, BorderLayout.NORTH);
+        receiptTablePanel.add(receiptTable, BorderLayout.CENTER);
 
         int[] priceArray = {130, 120, 100, 90, 140, 115, 190, 150, 145, 80, 170, 200};
         Object[] selectedItem = new Object[3];
@@ -166,7 +176,6 @@ public class ItemPage extends JFrame {
                 model.addRow(selectedItem);
             });
         }
-
         /*Java er biroktikor Table end*/
 
         orderBtn.addActionListener( e -> {
