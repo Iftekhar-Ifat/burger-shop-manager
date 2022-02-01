@@ -72,18 +72,24 @@ public class LoginPage extends JFrame {
         });
 
         loginBtn.addActionListener(e -> {
-            String userName = emailField.getText();
+            String userEmail = emailField.getText();
             String userPass = passwordField.getText();
 
             String userQuery = "SELECT `Email`,`Password`,`UserStatus` FROM `registration`";
             dispose();
             DataBase db = new DataBase();
-            db.checkLoginUser(userQuery, userName, userPass, status);
+
+            String userStatQuery = "SELECT `UserStatus` FROM `registration` WHERE `Email` = '"+userEmail+"' AND `Password` = '"+userPass+"'";
+
+            String returnStat = db.userStatus(userStatQuery);
+
+            if(returnStat.equals("seller")){
+                db.checkLoginUser(userQuery, userEmail, userPass, "seller");
+            }else{
+                db.checkLoginUser(userQuery, userEmail, userPass, status);
+            }
 
         });
-
-
-
         setVisible(true);
 
     }

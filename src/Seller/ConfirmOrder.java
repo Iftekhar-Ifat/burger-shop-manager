@@ -1,4 +1,5 @@
 package Seller;
+import Database.DataBase;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -86,19 +87,30 @@ public class ConfirmOrder extends JFrame {
         confirmOrderTablePanel.setBackground(Color.white);
         background.add(confirmOrderTablePanel);
 
+        /* SQL queries for table start*/
         Object[][] data = new Object[0][0];
 
-        //Object[][] data = new Object[0][0];
+        DataBase db = new DataBase();
+        String dataQuery = "SELECT * FROM `orders`";
+
+        int tableRow = db.totalRow(dataQuery);
+        Object[][] row = db.orderConfirm(dataQuery,tableRow,13);
+
+        /* SQL queries for table end*/
 
         Object[] column = {"C_ID","Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10", "Item 11", "Item 12"};
         Font headerFont = new Font("Arial", Font.BOLD, 11);
 
         DefaultTableModel model = new DefaultTableModel(data,column);
 
+        for (int j=0; j<tableRow; j++){
+            model.addRow(row[j]);
+        }
+
 
         JTable confirmOrderTable = new JTable(model);
         confirmOrderTable.setFont(new Font("Arial", Font.PLAIN, 11));
-        confirmOrderTable.setRowHeight(30);
+        confirmOrderTable.setRowHeight(20);
 
 /*
         center items start
@@ -127,6 +139,20 @@ public class ConfirmOrder extends JFrame {
         backBtn.addActionListener(e -> {
             dispose();
             new SellerDashboard();
+        });
+
+        confirmBtn.addActionListener(e -> {
+            String customerId = customerIdField.getText();
+            String itemNo = "Item-"+confirmItemNoField.getText();
+            JOptionPane.showMessageDialog(null,"Customer "+customerId+"'s Item No: "+itemNo+" is confirmed!");
+            String customerOrderQueryUpdate = "UPDATE `orders` SET `"+itemNo+"`=0 "+"WHERE `C_ID`="+customerId;
+            String deleteEmptyRow = "DELETE FROM `orders` WHERE `Item-1` = 0 AND`Item-2` = 0 AND `Item-3` = 0 AND `Item-4` = 0 AND `Item-5` = 0 AND `Item-6`" +
+                    " = 0 AND `Item-7` = 0 AND `Item-8` = 0 AND `Item-9` = 0 AND `Item-10` = 0 AND `Item-11` = 0 AND `Item-12` = 0 ";
+            db.updateTable(customerOrderQueryUpdate);
+            db.deleteRow(deleteEmptyRow);
+            dispose();
+            new ConfirmOrder();
+
         });
 
         setVisible(true);

@@ -1,5 +1,7 @@
 package Seller;
 
+import Database.DataBase;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -78,19 +80,32 @@ public class AddItem extends JFrame {
         confirmOrderTablePanel.setBackground(Color.white);
         background.add(confirmOrderTablePanel);
 
+        /* SQL queries for table start*/
         Object[][] data = new Object[0][0];
 
-        //Object[][] data = new Object[0][0];
+        DataBase db = new DataBase();
+        String dataQuery = "SELECT * FROM `burger_items`";
+
+        int tableRow = db.totalRow(dataQuery);
+        Object[][] row = db.orderConfirm(dataQuery,tableRow,4);
+
+        /* SQL queries for table end*/
+
 
         Object[] column = {"Item No", "Item Name", "Quantity","Price"};
         Font headerFont = new Font("Arial", Font.BOLD, 22);
 
         DefaultTableModel model = new DefaultTableModel(data,column);
 
+        for (int j=0; j<tableRow; j++){
+            model.addRow(row[j]);
+        }
 
         JTable addItemTable = new JTable(model);
-        addItemTable.setFont(new Font("Arial", Font.PLAIN, 20));
-        addItemTable.setRowHeight(30);
+        addItemTable.setFont(new Font("Arial", Font.PLAIN, 15));
+        addItemTable.setRowHeight(22);
+
+
 
 /*
         center items start
@@ -119,6 +134,11 @@ public class AddItem extends JFrame {
         backBtn.addActionListener(e -> {
             dispose();
             new SellerDashboard();
+        });
+
+        storeBtn.addActionListener(e -> {
+            String addItemQuery = "";
+
         });
 
         setVisible(true);

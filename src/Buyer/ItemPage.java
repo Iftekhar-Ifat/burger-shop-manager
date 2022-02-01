@@ -1,16 +1,22 @@
 package Buyer;
 
+import Authenticatio.LoginPage;
+import Database.DataBase;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.Arrays;
 
 
 public class ItemPage extends JFrame {
 
     Color maroon = new Color(36,1,1);
     Color burgerColor = new Color(255,153,0);
+    int[] sqlItemQuantity = new int[12];
 
     public ItemPage(){
         setSize(816,538);
@@ -165,20 +171,39 @@ public class ItemPage extends JFrame {
 
         int[] priceArray = {130, 120, 100, 90, 140, 115, 190, 150, 145, 80, 170, 200};
         Object[] selectedItem = new Object[3];
+
+
+
         for(int i=0; i<12; i++){
             int itemNo = i+1;
             int Price = priceArray[i];
-            itemsName[i].addActionListener( e -> {
+            int finalI = i;
+            itemsName[i].addActionListener(e -> {
                 String Quantity = JOptionPane.showInputDialog(null,"Enter Quantity: ");
                 selectedItem[0] = itemNo;
                 selectedItem[1] = Integer.parseInt(Quantity);
                 selectedItem[2] = Price*Integer.parseInt(Quantity);
+                sqlItemQuantity[finalI] = Integer.parseInt(Quantity);
                 model.addRow(selectedItem);
             });
         }
+
         /*Java er biroktikor Table end*/
 
         orderBtn.addActionListener( e -> {
+
+            /*Insert Order into Database start*/
+            String sqlQuery = "INSERT INTO `orders`(`Item-1`, `Item-2`, `Item-3`, `Item-4`, `Item-5`, `Item-6`, `Item-7`, `Item-8`, `Item-9`, `Item-10`, `Item-11`, `Item-12`) "
+                    + "VALUES ('"+sqlItemQuantity[0]+"','"+sqlItemQuantity[1]+"','"+sqlItemQuantity[2]+"','"+sqlItemQuantity[3]+"','"+sqlItemQuantity[4]+"','"+sqlItemQuantity[5]+"','"+sqlItemQuantity[6]+"','"+sqlItemQuantity[7]+"','"+sqlItemQuantity[8]+"','"+sqlItemQuantity[9]+"','"+sqlItemQuantity[10]+"','"+sqlItemQuantity[11]+"')";
+
+            DataBase db = new DataBase();
+            try {
+                db.Insert(sqlQuery);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            /*Insert Order into Database end*/
+
             dispose();
             new OrderConfirm();
         });

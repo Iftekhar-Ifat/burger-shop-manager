@@ -1,5 +1,7 @@
 package Authenticatio;
 
+import Database.DataBase;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -50,6 +52,7 @@ public class LoginMenu extends JFrame {
 
         sellerBtn.addActionListener( e -> {
             dispose();
+            System.out.println("seller");
             new LoginPage("pending");
         });
 
