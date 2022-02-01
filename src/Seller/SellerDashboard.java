@@ -1,5 +1,6 @@
 package Seller;
 
+import Authenticatio.LoginMenu;
 import Buyer.OrderConfirm;
 
 import javax.swing.*;
@@ -48,6 +49,10 @@ public class SellerDashboard extends JFrame {
         orderConfirmBtn.addActionListener(e -> {
             dispose();
             new ConfirmOrder();
+        });
+        logoutBtn.addActionListener(e -> {
+            dispose();
+            new LoginMenu();
         });
 
         setVisible(true);

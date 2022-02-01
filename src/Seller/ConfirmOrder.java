@@ -6,6 +6,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ConfirmOrder extends JFrame {
     Color maroon = new Color(36,1,1);
@@ -70,8 +71,7 @@ public class ConfirmOrder extends JFrame {
         checkItemNoField.setBackground(maroon);
         background.add(checkItemNoField);
 
-        int totalAvailableItem = 0;
-        JLabel totalLabel = new JLabel(String.valueOf(totalAvailableItem),SwingConstants.CENTER);
+        JLabel totalLabel = new JLabel("0",SwingConstants.CENTER);
         totalLabel.setFont(new Font("Arial", Font.BOLD, 18));
         totalLabel.setBackground(maroon);
         totalLabel.setForeground(burgerColor);
@@ -154,6 +154,14 @@ public class ConfirmOrder extends JFrame {
             new ConfirmOrder();
 
         });
+
+        checkBtn.addActionListener(e -> {
+            String item = checkItemNoField.getText();
+            String addItemQuery = "SELECT `Quantity` FROM `burger_items` WHERE `Item No.` = "+item;
+            String totalItem = db.totalItem(addItemQuery);
+            totalLabel.setText(totalItem);
+        });
+
 
         setVisible(true);
     }

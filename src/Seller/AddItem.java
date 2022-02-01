@@ -137,8 +137,16 @@ public class AddItem extends JFrame {
         });
 
         storeBtn.addActionListener(e -> {
-            String addItemQuery = "";
-
+            String quantity = quantityField.getText();
+            String item = itemNoField.getText();
+            String addItemQuery = "UPDATE `burger_items` SET `Quantity`= "+quantity+" WHERE `Item No.` = "+item;
+            db.updateTable(addItemQuery);
+            dispose();
+            new AddItem();
+        });
+        refreshBtn.addActionListener(e -> {
+            dispose();
+            new AddItem();
         });
 
         setVisible(true);

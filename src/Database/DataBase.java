@@ -130,6 +130,20 @@ public class DataBase {
             Logger.getLogger(DataBase.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
     /* Order Confirm Page Functions End...*/
+
+    public String totalItem(String userQuery){
+        try {
+            resSet = state.executeQuery(userQuery);
+            String ans = "";
+            while (resSet.next()){
+                ans = resSet.getString(1);
+            }
+            return ans;
+        } catch (SQLException ex) {
+            Logger.getLogger(DataBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
+    }
 }
