@@ -1,10 +1,14 @@
 package Admin;
 
+import Database.DataBase;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class RemoveSeller extends JFrame {
     public RemoveSeller(){
@@ -48,16 +52,23 @@ public class RemoveSeller extends JFrame {
 
         Object[][] data = new Object[0][0];
 
-        //Object[][] data = new Object[0][0];
+        DataBase db = new DataBase();
+        String dataQuery = "SELECT `Name`, `Mobile`, `UserStatus` FROM `registration` WHERE `UserStatus` = 'seller'";
+
+        int tableRow = db.totalRow(dataQuery);
+        Object[][] row = db.orderConfirm(dataQuery,tableRow,3);
 
         Object[] column = {"Name", "Mobile","E-mail"};
         Font headerFont = new Font("Arial", Font.BOLD, 22);
 
         DefaultTableModel model = new DefaultTableModel(data,column);
 
+        for (int j=0; j<tableRow; j++){
+            model.addRow(row[j]);
+        }
 
         JTable removeSellerTable = new JTable(model);
-        removeSellerTable.setFont(new Font("Arial", Font.PLAIN, 20));
+        removeSellerTable.setFont(new Font("Arial", Font.PLAIN, 15));
         removeSellerTable.setRowHeight(30);
 
 /*
@@ -83,6 +94,22 @@ public class RemoveSeller extends JFrame {
 /*
         Remove Seller Table end
 */
+        JTextField mobileField = new JTextField();
+
+        removeSellerTable.addMouseListener(new MouseAdapter() {
+            String mobile;
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int rowIndex = removeSellerTable.getSelectedRow();
+                mobile = (String) model.getValueAt(rowIndex, 1);
+                mobileField.setText(mobile);
+            }
+        });
+
+        removeBtn.addActionListener( e -> {
+            model.removeRow(removeSellerTable.getSelectedRow());
+            db.updateTable("UPDATE `registration` SET `UserStatus`='buyer' WHERE `Mobile`='"+mobileField.getText()+"'");
+        });
 
         setVisible(true);
     }

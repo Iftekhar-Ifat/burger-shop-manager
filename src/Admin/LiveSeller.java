@@ -1,5 +1,7 @@
 package Admin;
 
+import Database.DataBase;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -42,16 +44,23 @@ public class LiveSeller extends JFrame {
 
         Object[][] data = new Object[0][0];
 
-        //Object[][] data = new Object[0][0];
+        DataBase db = new DataBase();
+        String dataQuery = "SELECT `Name`, `Mobile`, `UserStatus` FROM `registration` WHERE `UserStatus` = 'seller'";
+
+        int tableRow = db.totalRow(dataQuery);
+        Object[][] row = db.orderConfirm(dataQuery,tableRow,3);
 
         Object[] column = {"Name", "Mobile", "Status"};
         Font headerFont = new Font("Arial", Font.BOLD, 22);
 
         DefaultTableModel model = new DefaultTableModel(data,column);
 
+        for (int j=0; j<tableRow; j++){
+            model.addRow(row[j]);
+        }
 
         JTable liveSellerTable = new JTable(model);
-        liveSellerTable.setFont(new Font("Arial", Font.PLAIN, 20));
+        liveSellerTable.setFont(new Font("Arial", Font.PLAIN, 15));
         liveSellerTable.setRowHeight(30);
 
         /*center items start*/

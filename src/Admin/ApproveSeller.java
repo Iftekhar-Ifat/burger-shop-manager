@@ -1,10 +1,15 @@
 package Admin;
 
+import Database.DataBase;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Arrays;
 
 public class ApproveSeller extends JFrame {
     public ApproveSeller(){
@@ -44,16 +49,25 @@ public class ApproveSeller extends JFrame {
 
         Object[][] data = new Object[0][0];
 
-        //Object[][] data = new Object[0][0];
+        DataBase db = new DataBase();
+        String dataQuery = "SELECT `Name`, `Mobile`, `UserStatus` FROM `registration` WHERE `UserStatus` = 'pending'";
+
+        int tableRow = db.totalRow(dataQuery);
+        Object[][] row = db.orderConfirm(dataQuery,tableRow,3);
+
 
         Object[] column = {"Name", "Mobile", "Status"};
         Font headerFont = new Font("Arial", Font.BOLD, 22);
 
         DefaultTableModel model = new DefaultTableModel(data,column);
 
+        for (int j=0; j<tableRow; j++){
+            model.addRow(row[j]);
+        }
+
 
         JTable approveSellerTable = new JTable(model);
-        approveSellerTable.setFont(new Font("Arial", Font.PLAIN, 20));
+        approveSellerTable.setFont(new Font("Arial", Font.PLAIN, 15));
         approveSellerTable.setRowHeight(30);
 
 /*
@@ -80,10 +94,26 @@ public class ApproveSeller extends JFrame {
         Approve Seller Table end
 */
 
-
         backBtn.addActionListener( e -> {
             dispose();
             new Dashboard();
+        });
+
+        JTextField mobileField = new JTextField();
+
+        approveSellerTable.addMouseListener(new MouseAdapter() {
+            String mobile;
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int rowIndex = approveSellerTable.getSelectedRow();
+                mobile = (String) model.getValueAt(rowIndex, 1);
+                mobileField.setText(mobile);
+            }
+        });
+
+        approveBtn.addActionListener( e -> {
+            model.removeRow(approveSellerTable.getSelectedRow());
+            db.updateTable("UPDATE `registration` SET `UserStatus`='seller' WHERE `Mobile`='"+mobileField.getText()+"'");
         });
 
         setVisible(true);
