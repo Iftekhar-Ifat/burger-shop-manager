@@ -15,6 +15,11 @@ public class LoginPage extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setTitle("Burger Shop Manager");
+        ImageIcon appIcon = new ImageIcon("Images/appIcon.png");
+        this.setIconImage(appIcon.getImage());
+        
+
 
         JLabel background = new JLabel();
         background.setBounds(0,0,800,500);
@@ -31,7 +36,7 @@ public class LoginPage extends JFrame {
         emailField.setBackground(maroon);
         background.add(emailField);
 
-        JTextField passwordField = new JTextField();
+        JPasswordField passwordField = new JPasswordField();
         passwordField.setBounds(309,264,280,30);
         passwordField.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         passwordField.setFont(new Font("Arial", Font.BOLD, 18));

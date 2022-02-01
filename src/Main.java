@@ -15,9 +15,9 @@ public class Main {
         //BuyerList bs = new BuyerList();
         //LiveSeller ls = new LiveSeller();
         //Earnings er = new Earnings();
-        Dashboard dsh = new Dashboard();
+        //Dashboard dsh = new Dashboard();
         //ItemPage item = new ItemPage();
-        //LoginMenu lg = new LoginMenu();
+        LoginMenu lg = new LoginMenu();
         //OrderConfirm oc = new OrderConfirm();
         //Registration reg = new Registration();
         //LoginPage lp = new LoginPage("");

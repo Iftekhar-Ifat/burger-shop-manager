@@ -12,6 +12,10 @@ public class Dashboard extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setTitle("Burger Shop Manager");
+        ImageIcon appIcon = new ImageIcon("Images/appIcon.png");
+        this.setIconImage(appIcon.getImage());
+        
 
         JLabel background = new JLabel();
         background.setBounds(0,0,800,500);

@@ -15,6 +15,7 @@ public class BuyerList extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setTitle("Burger Shop Manager");
 
         JLabel background = new JLabel();
         background.setBounds(0,0,800,500);

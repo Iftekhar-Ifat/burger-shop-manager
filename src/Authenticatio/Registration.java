@@ -16,6 +16,11 @@ public class Registration extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setTitle("Burger Shop Manager");
+        ImageIcon appIcon = new ImageIcon("Images/appIcon.png");
+        this.setIconImage(appIcon.getImage());
+        
+
 
         JLabel leftCard = new JLabel();
         leftCard.setBounds(0,0,150,500);
@@ -69,7 +74,7 @@ public class Registration extends JFrame {
         mobileField.setBackground(maroon);
         add(mobileField);
 
-        JTextField passwordField = new JTextField();
+        JPasswordField passwordField = new JPasswordField();
         passwordField.setBounds(309,272,280,30);
         passwordField.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         passwordField.setFont(new Font("Arial", Font.BOLD, 18));
@@ -78,7 +83,7 @@ public class Registration extends JFrame {
         passwordField.setBackground(maroon);
         add(passwordField);
 
-        JTextField confirmPassField = new JTextField();
+        JPasswordField confirmPassField = new JPasswordField();
         confirmPassField.setBounds(309,338,280,30);
         confirmPassField.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         confirmPassField.setFont(new Font("Arial", Font.BOLD, 18));
@@ -108,7 +113,7 @@ public class Registration extends JFrame {
             if(!Pattern.matches(userNameRegEx, name)){
                 JOptionPane.showMessageDialog(null, "Invalid User Name\n");
             }else if(!Pattern.matches(emailRegEx, email)){
-                System.out.println(email);
+//                System.out.println(email);
                 JOptionPane.showMessageDialog(null, "Invalid E-mail!");
             }else if(!Pattern.matches(mobileRegEx, mobile)){
                 JOptionPane.showMessageDialog(null, "Invalid Mobile Number\n");
@@ -126,7 +131,7 @@ public class Registration extends JFrame {
                     new LoginPage(status);
                 } catch (SQLException ex) {
                     ex.printStackTrace();
-                }
+                } 
             }
         });
         setVisible(true);
