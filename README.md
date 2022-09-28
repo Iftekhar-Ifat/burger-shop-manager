@@ -5,12 +5,18 @@
 -   Language: JAVA SE.
 -   Framework: Swing
 -   Database: MySQL
--   IDE: NetBeans, IntelliJ IDEA Hardware
+-   IDE: NetBeans, IntelliJ IDEA 
+
+## Hardware
+
 -   Platform: Independent (Windows/MAC/Linux)
 
 ![Untitled](./Images/Burger%20Shop%20Manager%20Project%20Readme/Untitled.png)
 
-"Burger Shop Manager" is a desktop app that organizes a fast-food shop. This app uses JAVA Swing. It has three types of users “Admin”, “Seller”, and “Buyer”.
+## Executive Summary
+
+"Burger Shop Manager" is a desktop app that organizes a fast-food shop. This app uses JAVA Swing. 
+It has three types of users “Admin”, “Seller”, and “Buyer”.
 
 ![Untitled](./Images/Burger%20Shop%20Manager%20Project%20Readme/Untitled%201.png)![Untitled](./Images/Burger%20Shop%20Manager%20Project%20Readme/Untitled%202.png)
 
