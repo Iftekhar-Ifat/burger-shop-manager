@@ -1,6 +1,6 @@
 package Buyer;
 
-import Authenticatio.LoginPage;
+import Authentication.LoginPage;
 import Database.DataBase;
 
 import javax.swing.*;
@@ -24,7 +24,7 @@ public class ItemPage extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setTitle("Burger Shop Manager");
-        ImageIcon appIcon = new ImageIcon("Images/appIcon.png");
+        ImageIcon appIcon = new ImageIcon("../Images/appIcon.png");
         this.setIconImage(appIcon.getImage());
         
 
@@ -40,7 +40,7 @@ public class ItemPage extends JFrame {
         sliderBack.setCursor(new Cursor(Cursor.HAND_CURSOR));
         sliderBack.setBackground(Color.WHITE);
         sliderBack.setBorder(null);
-        ImageIcon sliderBackIcon = new ImageIcon("Images/Buyer/Item Menu/backSlider.png");
+        ImageIcon sliderBackIcon = new ImageIcon("../Images/Buyer/Item Menu/backSlider.png");
         sliderBack.setIcon(sliderBackIcon);
         background.add(sliderBack);
 
@@ -49,20 +49,20 @@ public class ItemPage extends JFrame {
         sliderFront.setCursor(new Cursor(Cursor.HAND_CURSOR));
         sliderFront.setBackground(Color.WHITE);
         sliderFront.setBorder(null);
-        ImageIcon sliderFrontIcon = new ImageIcon("Images/Buyer/Item Menu/frontSlider.png");
+        ImageIcon sliderFrontIcon = new ImageIcon("../Images/Buyer/Item Menu/frontSlider.png");
         sliderFront.setIcon(sliderFrontIcon);
         background.add(sliderFront);
 
         JLabel receiptLabel = new JLabel();
         receiptLabel.setBounds(650,0,150,500);
-        ImageIcon receiptImg = new ImageIcon("Images/Buyer/Item Menu/receiptLabel.png");
+        ImageIcon receiptImg = new ImageIcon("../Images/Buyer/Item Menu/receiptLabel.png");
         receiptLabel.setIcon(receiptImg);
         background.add(receiptLabel);
 
         JButton orderBtn = new JButton();
         orderBtn.setBounds(17,426,115,50);
         orderBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon orderBtnImg = new ImageIcon("Images/Buyer/Item Menu/orderBtn.png");
+        ImageIcon orderBtnImg = new ImageIcon("../Images/Buyer/Item Menu/orderBtn.png");
         orderBtn.setIcon(orderBtnImg);
         receiptLabel.add(orderBtn);
 
@@ -70,13 +70,13 @@ public class ItemPage extends JFrame {
 
         pageSlider[0] = new JLabel();
         pageSlider[0].setBounds(0,0,650,500);
-        ImageIcon firstBackImg = new ImageIcon("Images/Buyer/Item Menu/firstBackground.png");
+        ImageIcon firstBackImg = new ImageIcon("../Images/Buyer/Item Menu/firstBackground.png");
         pageSlider[0].setIcon(firstBackImg);
         background.add(pageSlider[0]);
 
         pageSlider[1] = new JLabel();
         pageSlider[1] .setBounds(0,0,650,500);
-        ImageIcon secBackImg = new ImageIcon("Images/Buyer/Item Menu/secondBackground.png");
+        ImageIcon secBackImg = new ImageIcon("../Images/Buyer/Item Menu/secondBackground.png");
         pageSlider[1].setIcon(secBackImg);
         background.add(pageSlider[1]);
 
@@ -87,7 +87,7 @@ public class ItemPage extends JFrame {
             itemsName[i] = new JButton();
             if(i==0 || i==1 || i==2 || i==6 || i==7 || i==8){
                 itemsName[i].setBounds(xAxis,40,136,171);
-                String path = "Images/Buyer/Item Menu/Items/" + (i+1) + ".png";
+                String path = "../Images/Buyer/Item Menu/Items/" + (i+1) + ".png";
                 itemsName[i].setBorder(null);
                 itemsName[i].setBackground(null);
                 itemsName[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -100,7 +100,7 @@ public class ItemPage extends JFrame {
                 }
             }else{
                 itemsName[i].setBounds(xAxis,247,136,171);
-                String path = "Images/Buyer/Item Menu/Items/" + (i+1) + ".png";
+                String path = "../Images/Buyer/Item Menu/Items/" + (i+1) + ".png";
                 itemsName[i].setBorder(null);
                 itemsName[i].setBackground(null);
                 itemsName[i].setCursor(new Cursor(Cursor.HAND_CURSOR));

@@ -18,35 +18,35 @@ public class AddItem extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setTitle("Burger Shop Manager");
-        ImageIcon appIcon = new ImageIcon("Images/appIcon.png");
+        ImageIcon appIcon = new ImageIcon("../Images/appIcon.png");
         this.setIconImage(appIcon.getImage());
         
 
 
         JLabel background = new JLabel();
         background.setBounds(0,0,800,500);
-        ImageIcon backImg = new ImageIcon("Images/Seller/Add Item/background.png");
+        ImageIcon backImg = new ImageIcon("../Images/Seller/Add Item/background.png");
         background.setIcon(backImg);
         add(background);
 
         JButton backBtn = new JButton();
         backBtn.setBounds(11, 10, 115,50);
         backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon backIcon = new ImageIcon("Images/Buyer/Order Confirm/backBtn.png");
+        ImageIcon backIcon = new ImageIcon("../Images/Buyer/Order Confirm/backBtn.png");
         backBtn.setIcon(backIcon);
         background.add(backBtn);
 
         JButton storeBtn = new JButton();
         storeBtn.setBounds(199, 440, 100,40);
         storeBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon storeIcon = new ImageIcon("Images/Seller/Add Item/storeBtn.png");
+        ImageIcon storeIcon = new ImageIcon("../Images/Seller/Add Item/storeBtn.png");
         storeBtn.setIcon(storeIcon);
         background.add(storeBtn);
 
         JButton refreshBtn = new JButton();
         refreshBtn.setBounds(350, 440, 100,40);
         refreshBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon refreshIcon = new ImageIcon("Images/Seller/Add Item/refreshBtn.png");
+        ImageIcon refreshIcon = new ImageIcon("../Images/Seller/Add Item/refreshBtn.png");
         refreshBtn.setIcon(refreshIcon);
         background.add(refreshBtn);
 

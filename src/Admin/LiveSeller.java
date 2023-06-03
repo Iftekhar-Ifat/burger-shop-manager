@@ -16,21 +16,21 @@ public class LiveSeller extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setTitle("Burger Shop Manager");
-        ImageIcon appIcon = new ImageIcon("Images/appIcon.png");
+        ImageIcon appIcon = new ImageIcon("../Images/appIcon.png");
         this.setIconImage(appIcon.getImage());
         
 
 
         JLabel background = new JLabel();
         background.setBounds(0,0,800,500);
-        ImageIcon backImg = new ImageIcon("Images/Admin/Live Seller/background.png");
+        ImageIcon backImg = new ImageIcon("../Images/Admin/Live Seller/background.png");
         background.setIcon(backImg);
         add(background);
 
         JButton backBtn = new JButton();
         backBtn.setBounds(11, 10, 115,50);
         backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon backIcon = new ImageIcon("Images/Buyer/Order Confirm/backBtn.png");
+        ImageIcon backIcon = new ImageIcon("../Images/Buyer/Order Confirm/backBtn.png");
         backBtn.setIcon(backIcon);
         background.add(backBtn);
 

@@ -17,35 +17,35 @@ public class ConfirmOrder extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setTitle("Burger Shop Manager");
-        ImageIcon appIcon = new ImageIcon("Images/appIcon.png");
+        ImageIcon appIcon = new ImageIcon("../Images/appIcon.png");
         this.setIconImage(appIcon.getImage());
         
 
 
         JLabel background = new JLabel();
         background.setBounds(0,0,800,500);
-        ImageIcon backImg = new ImageIcon("Images/Seller/Order Confirm/background.png");
+        ImageIcon backImg = new ImageIcon("../Images/Seller/Order Confirm/background.png");
         background.setIcon(backImg);
         add(background);
 
         JButton backBtn = new JButton();
         backBtn.setBounds(11, 10, 115,50);
         backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon backIcon = new ImageIcon("Images/Buyer/Order Confirm/backBtn.png");
+        ImageIcon backIcon = new ImageIcon("../Images/Buyer/Order Confirm/backBtn.png");
         backBtn.setIcon(backIcon);
         background.add(backBtn);
 
         JButton confirmBtn = new JButton();
         confirmBtn.setBounds(146, 426, 90,30);
         confirmBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon confirmIcon = new ImageIcon("Images/Seller/Order Confirm/confirmBtn.png");
+        ImageIcon confirmIcon = new ImageIcon("../Images/Seller/Order Confirm/confirmBtn.png");
         confirmBtn.setIcon(confirmIcon);
         background.add(confirmBtn);
 
         JButton checkBtn = new JButton();
         checkBtn.setBounds(446, 426, 90,30);
         checkBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        ImageIcon checkIcon = new ImageIcon("Images/Seller/Order Confirm/checkBtn.png");
+        ImageIcon checkIcon = new ImageIcon("../Images/Seller/Order Confirm/checkBtn.png");
         checkBtn.setIcon(checkIcon);
         background.add(checkBtn);
 

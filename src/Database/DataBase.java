@@ -1,7 +1,7 @@
 package Database;
 
 import Admin.Dashboard;
-import Authenticatio.LoginPage;
+import Authentication.LoginPage;
 import Buyer.ItemPage;
 import Seller.SellerDashboard;
 
